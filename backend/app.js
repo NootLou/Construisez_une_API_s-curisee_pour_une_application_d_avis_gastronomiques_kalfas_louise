@@ -6,10 +6,12 @@ require('dotenv').config();
 const userRouter = require('./routes/user');
 
 mongoose.connect(process.env.DATABASE_URL,
-  { useNewUrlParser: true,
-    useUnifiedTopology: true })
-  .then(() => console.log('Connexion à MongoDB réussie !'))
-  .catch(() => console.log('Connexion à MongoDB échouée !'));
+    {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    })
+    .then(() => console.log('Connexion à MongoDB réussie !'))
+    .catch(() => console.log('Connexion à MongoDB échouée !'));
 
 app.use(express.json());
 
@@ -20,7 +22,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use('api/auth', userRouter);
+app.use('/api/auth', userRouter);
 
 
 module.exports = app;
