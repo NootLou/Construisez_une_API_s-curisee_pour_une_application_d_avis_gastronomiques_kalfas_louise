@@ -32,7 +32,7 @@ exports.login = (req, res, next) => {
                             token: jwt.sign(
                                 { userId: user._id },
                                 'CECI_EST_UN_TOKEN',
-                                { expiresIn: '24' },
+                                { expiresIn: '24h' },
                             )
                         })
                     ]
